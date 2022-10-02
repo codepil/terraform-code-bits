@@ -1,0 +1,23 @@
+# To test breaking glass feature of GKE
+# pick up an image from gcr.io/google-samples which is not attested by Bin auth, and deploy
+# kubectl create -f ./create_pod.yaml
+# 1) test label selector functionality by,
+# kubectl get pods -l environment=production,tier=backend
+# 2) to enable break glass, based on your K8 version ( see https://cloud.google.com/binary-authorization/docs/using-breakglass)
+# add label, image-policy.k8s.io/break-glass: "true"
+#
+# clean up
+# kubectl delete -f ./create_pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: breakglass-pod
+  labels:
+    environment: production
+    app: echo-java
+    tier: backend
+    image-policy.k8s.io/break-glass: "true"
+spec:
+  containers:
+  - name: echo-java
+    image: gcr.io/google-samples/echo-java@sha256:d71e63bfaff00357f617a2545fba524ca7cb333a3e37620066c13a38498ef09c

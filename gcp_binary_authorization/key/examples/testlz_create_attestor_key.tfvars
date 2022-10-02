@@ -1,0 +1,6 @@
+key_project_id = "pid-gcp-tlz-gke-att-77d1"
+key_ring_name = "attestor-key-ring"
+location = "global"
+attestor_key_name = "attesting-key12"
+attestor_project_number = 109280866996 # for "pid-gcp-tlz-gke-att-77d1"
+deployer_project_numbers = [541092539069] # for "pid-gcp-tlz-gke01-d0cc"
