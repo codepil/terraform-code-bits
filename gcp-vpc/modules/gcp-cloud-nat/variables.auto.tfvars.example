@@ -1,0 +1,7 @@
+project_id           = "abc"
+nat_name             = "mynat"
+region               = "us-east1"
+number_nat_addresses = 2
+network              = "mynet"
+#labels               = {}
+#existing_nat_addresses = ["addr1", "addr3"]
