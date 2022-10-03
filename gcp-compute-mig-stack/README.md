@@ -11,7 +11,7 @@ This module can be used for,
 * * Optionally creating internal TCP/UDP Load Balancer, with MIG as a default backend service
 * Adding additional Canary versions of instance(s) to MIG
 
-Refer to [examples](/examples) directory for possible scenario(s)/values.
+Refer to [./examples](./examples) directory for possible scenario(s)/values.
 
 ## Pre-requisites
 * Project should have enabled Compute Engine API (compute.googleapis.com).
