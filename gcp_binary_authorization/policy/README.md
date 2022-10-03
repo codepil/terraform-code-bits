@@ -16,7 +16,7 @@ Additionally, the policy declares a defaultAdmissionRule DENY\_ALL that states t
 ## Pre-requisites
 * Deployer Project should have enabled Binary Authorisation APIs ("binaryauthorization.googleapis.com", "containerregistry.googleapis.com", "artifactregistry.googleapis.com", "container.googleapis.com" ).
 * Google Kubernetes Engine(GKE) cluster crated with "Binary Authorization" enabled
-* Given Landing Zone is already have an common Attestor, if not use [this](https://github.com/codepil/terraform-code-bits/gcp-binary-authorization-attestor/-/tree/main) TF to create one on respective landing zone project.
+* Given Landing Zone is already have an common Attestor, if not use [this](https://github.com/codepil/terraform-code-bits/tree/main/gcp-binary-authorization-attestor/) TF to create one on respective landing zone project.
 
 ## Requirements
 
