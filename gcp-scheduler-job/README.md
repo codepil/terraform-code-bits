@@ -3,7 +3,7 @@
 This module creates a scheduler job infrastructure, given the target job details.
 It supports creation of Pub/Sub, HTTP or App Engine HTTP end point job targets. It also supports combination of job targets in a single deployment depending on presense of respective target(s) in the input.
 
-Refer to [examples](/examples) for sample tfvars for a given job target. 
+Refer to [examples](./examples) for sample tfvars for a given job target. 
 
 HTTP job target currently supports OAuth using OIDC tokens using Service Account, however can be modified to support other authentication mechanisms as mentioned in [TF resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_scheduler_job) documentation.
 
