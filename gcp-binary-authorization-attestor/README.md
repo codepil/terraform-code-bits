@@ -12,6 +12,6 @@ Which creates,
 ## Next steps
 After building an Attestor, 
 * Attestations can be created using KMS key, in the respective image built CI/CD pipeline.
-* Create/update authorisation policies to use Attestor created, to complete the GKE/binary authorisation. You may use building block at https://github.com/codepil/terraform-code-bits/gcp-binary-authorization for the same.
+* Create/update authorisation policies to use Attestor created, to complete the GKE/binary authorisation. You may use building block at https://github.com/codepil/terraform-code-bits/gcp_binary_authorization for the same.
 
 
