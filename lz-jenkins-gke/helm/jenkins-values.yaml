@@ -1,0 +1,73 @@
+# Based on https://github.com/jenkinsci/helm-charts/blob/main/charts/jenkins/values.yaml
+
+master:
+  # Plugin version updates should be handled here
+  installPlugins:
+    - kubernetes:1.27.4
+    - workflow-job:2.40
+    - workflow-aggregator:2.6
+    - credentials-binding:1.24
+    - configuration-as-code:1.47
+  # Non-default plugins to include
+  additionalPlugins:
+    - blueocean:1.24.2
+    - google-login:1.6
+
+  serviceType: ClusterIP
+  serviceAnnotations:
+    cloud.google.com/backend-config: '{"ports": {"8080":"jenkins-iap"}}'
+    cloud.google.com/neg: '{"ingress": true}'
+
+  ingress:
+    enabled: true
+    hostName: jenkins-lz.example.com
+    annotations:
+      ingress.gcp.kubernetes.io/pre-shared-cert: 'lz-jenkins-ingress'
+      kubernetes.io/ingress.allow-http: 'false'
+      kubernetes.io/ingress.global-static-ip-name: 'adr-gcp-inf-web-jenkins'
+      beta.cloud.google.com/backend-config: '{"http": "jenkins-iap"}'
+
+  jenkinsUrlProtocol: https
+  slaveJenkinsUrl: "http://jenkins.jenkins.svc.cluster.local:8080"
+  slaveJenkinsTunnel: "jenkins-agent.jenkins.svc.cluster.local:50000"
+
+  JCasC:
+    authorizationStrategy: |-
+      projectMatrix:
+        permissions:
+        - "Overall/Administer:bijjalap@example.com"
+        - "Overall/Administer:bijjalap@example.com"
+        - "Overall/Administer:ted.hunter@example.com"
+        - "Overall/Administer:vseelam@example.com"
+        - "Overall/Read:authenticated"
+    securityRealm: |-
+      googleOAuth2:
+        clientId: "171563879534-gjo1775hdf9jje208qhpkh5vp17drhoi.apps.googleusercontent.com"
+        clientSecret: "{AQAAABAAAAAgt6YfLqAkeM94F1P7NcUhjCFxqDMlRAilJ4jZfVwkWK5JMDxbZ8Iawac4DZIw8A4T}"
+        domain: "example.com,gpp.cloud,e-hps.com,touchnet.com,example.com"
+    configScripts:
+      welcome-message: |
+        jenkins:
+          systemMessage: |
+            --------------------------- Security Disclosure -------------------------
+            Warning: This system is restricted to authorized users of your organisations Inc. and should be utilized for business purposes only. Unauthorized
+            access or use is a violation of company policy and the law. This system may be monitored for administrative and security reasons. By proceeding,
+            you acknowledge that (1) you have read and understand this notice, and (2) you consent to the system monitoring.
+      extra-clouds: |
+        jenkins:
+          clouds:
+          - kubernetes:
+              containerCap: 10
+              containerCapStr: "10"
+              credentialsId: "ksa-lz-automation"
+              jenkinsTunnel: "jenkins-agent.jenkins.svc.cluster.local:50000"
+              jenkinsUrl: "http://jenkins.jenkins.svc.cluster.local:8080"
+              maxRequestsPerHost: 32
+              maxRequestsPerHostStr: "32"
+              name: "lz-automation"
+              namespace: "lz-automation"
+              podLabels:
+              - key: "jenkins/jenkins-jenkins-slave"
+                value: "true"
+              serverUrl: "https://kubernetes.default"
+              usageRestricted: true

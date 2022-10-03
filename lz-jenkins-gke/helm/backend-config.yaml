@@ -1,0 +1,10 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: jenkins-iap
+  namespace: jenkins
+spec:
+  iap:
+    enabled: true
+    oauthclientCredentials:
+      secretName: jenkins-iap-client
