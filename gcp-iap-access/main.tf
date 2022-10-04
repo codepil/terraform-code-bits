@@ -1,5 +1,5 @@
 /*
-* # gcp-iap
+* # gcp-iap-access
 *
 * This module provisions IAP, and adds member identities to access given VM instances or MIG
 *
