@@ -63,7 +63,7 @@ resource "google_project_iam_member" "images_member" {
 
 ### Optionally, setup GCR, granting access to the scanning service account
 module "gcr" {
-  source          = "git::https://git.gp-archcon.com/tf-sharedmodules-internal/gcp-container-registry.git"
+  source          = "../gcp-container-registry"
   count           = var.enable_gcr ? 1 : 0
   project_id      = module.images_project.project_id
   location        = var.gcs_defaults.location

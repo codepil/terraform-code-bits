@@ -13,7 +13,7 @@
 
 # Create a Key Ring
 module "key-ring"{
-  source = "git::https://github.com/codepil/terraform-code-bits/gcp-kms-keyring.git?ref=v1.0.0"
+  source = "../gcp-kms-keyring"
 
   project_id = "pid-gcp-tlz-gke01-d0cc"
   key_ring_name = "attestor-key-ring"

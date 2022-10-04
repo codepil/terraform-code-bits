@@ -30,7 +30,7 @@
 
 
 module "lm_instance_service_account" {
-  source       = "git::https://github.com/codepil/terraform-code-bits/gcp-service-account?ref=v1.0.1"
+  source       = "github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/iam-service-account"
   project_id   = var.project_id
   name         = "lm-collector-instance-sa"
   display_name = "Terraform-managed-logic-monitor-collector-instance-sa"

@@ -23,8 +23,8 @@ Creates attestation key, and adds cryptoOperator IAM role to Deployer and Attest
 
 | Name | Source | Version |
 |------|--------|---------|
-| attestor-key | git::https://github.com/codepil/terraform-code-bits/gcp-kms-key.git?ref=v1.0.0 |  |
-| key-ring | git::https://github.com/codepil/terraform-code-bits/gcp-kms-keyring.git?ref=v1.0.0 |  |
+| attestor-key | ../gcp-kms-key |  |
+| key-ring | ../gcp-kms-keyring |  |
 
 ## Resources
 

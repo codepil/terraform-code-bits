@@ -35,7 +35,7 @@ Refer to [./examples](./examples) directory for possible scenario(s)/values.
 | Name | Source | Version |
 |------|--------|---------|
 | instance-template | github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/compute-vm?ref=v4.8.0 |  |
-| instance\_template\_service\_account | git::https://github.com/codepil/terraform-code-bits/gcp-service-account?ref=v1.0.1 |  |
+| instance\_template\_service\_account | github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/iam-service-account?ref=v18.0.0 |  |
 | lb-https | GoogleCloudPlatform/lb-http/google | 5.1.0 |
 | lb-ilb | GoogleCloudPlatform/lb-internal/google | 4.0.0 |
 | mig | github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/compute-mig?ref=v4.8.0 |  |

@@ -18,7 +18,7 @@ variable "automation_project_id" {
 
 variable "global_automation_project_id" {
   description = "Project ID used for workload identity and pipeline execution."
-  default     = "pid-gousgnap-lzds-res01"
+  default     = "pid-gcp-lzds-res01"
 }
 
 variable "environment" {
@@ -49,7 +49,7 @@ variable "project_name" {
   type        = string
   # Note, the contains() function in validation condition is for whitelisting existing projects that violate the naming standard.  Better this than relaxing the regex to cover them and allow future violations.
   validation {
-    condition     = length(var.project_name) <= 30 && (can(regex("^pid-go(us|eu|as|ap|gg)[nsewcg](as|ap|eu|uk|na)i{0,1}[bdqsgcp]-[a-z0-9]{3,4}-[a-z0-9][-a-z0-9]{2,12}$", var.project_name)) || var.project_name == "" || contains(["prj-gousenaid-astro-res01", "prj-gousenaib-oratde-res01", "dgov-dev-57e8", "pid-gousgggq-sec-scan01", "pid-gousgggp-sec-scan01", "pid-gousgggp-ssvc-os-images", "pid-gousgggd-ssvc-os-images"], var.project_name))
+    condition     = length(var.project_name) <= 30 && (can(regex("^pid-go(us|eu|as|ap|gg)[nsewcg](as|ap|eu|uk|na)i{0,1}[bdqsgcp]-[a-z0-9]{3,4}-[a-z0-9][-a-z0-9]{2,12}$", var.project_name)) || var.project_name == "" || contains(["prj-gousenaid-astro-res01", "prj-gousenaib-oratde-res01", "dgov-dev-57e8", "pid-gousgggq-sec-scan01", "pid-gcp-sec-scan01", "pid-gcp-ssvc-os-images", "pid-gousgggd-ssvc-os-images"], var.project_name))
     error_message = "The project name must follow the standard naming convention, AND be 25 characters or less with randomize_project_id = true or 30 characters or less with randomize_project_id = false."
   }
   default = ""

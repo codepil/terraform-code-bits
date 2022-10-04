@@ -40,7 +40,7 @@ This module creates the following:
 | conhub\_spoke\_vpc | github.com/terraform-google-modules/cloud-foundation-fabric//modules/net-vpc?ref=v4.3.0 |  |
 | env\_svpc\_automation\_service\_accounts | github.com/terraform-google-modules/cloud-foundation-fabric//modules/iam-service-account?ref=v4.3.0 |  |
 | env\_svpc\_hosts | github.com/terraform-google-modules/cloud-foundation-fabric//modules/project?ref=v4.3.0 |  |
-| gcr | git::https://git.gp-archcon.com/tf-sharedmodules-internal/gcp-container-registry.git |  |
+| gcr | ../gcp-container-registry |  |
 | images\_automation\_service\_account | github.com/terraform-google-modules/cloud-foundation-fabric//modules/iam-service-account?ref=v4.3.0 |  |
 | images\_project | github.com/terraform-google-modules/cloud-foundation-fabric//modules/project?ref=v4.3.0 |  |
 
@@ -105,7 +105,7 @@ This module creates the following:
 | images\_project\_services | API services that will be enabled on the LZ images/GCR project. Removing any of the APIs in the default list will cause errors in the creation of resources as part of this module. | `list(string)` | <pre>[<br>  "storage-component.googleapis.com",<br>  "storage-api.googleapis.com",<br>  "containerregistry.googleapis.com",<br>  "compute.googleapis.com",<br>  "secretmanager.googleapis.com",<br>  "iam.googleapis.com"<br>]</pre> | no |
 | labels | Required labels applied to LZ resouces | `map(string)` | `{}` | no |
 | lz\_delegated\_conhub\_roles | Custom role for peeing between LZ lifecycle project and conhub spoke project | `list(string)` | <pre>[<br>  "organizations/155946218325/roles/PeeringDelegate"<br>]</pre> | no |
-| scanning\_service\_account | Service account which will be granted permissions for scanning GCR in *-lz-images project of the LZ. | `string` | `"act-twistlock@pid-gousgggp-sec-scan01.iam.gserviceaccount.com"` | no |
+| scanning\_service\_account | Service account which will be granted permissions for scanning GCR in *-lz-images project of the LZ. | `string` | `"act-twistlock@pid-gcp-sec-scan01.iam.gserviceaccount.com"` | no |
 | shared\_vpc\_host\_project\_services | API services that will be enabled on each of the Shared VPC host projects. | `list(string)` | <pre>[<br>  "cloudbilling.googleapis.com",<br>  "cloudresourcemanager.googleapis.com",<br>  "storage-component.googleapis.com",<br>  "secretmanager.googleapis.com"<br>]</pre> | no |
 | trusted\_images\_projects | List of `projects/<project_id>` from which projects within this landing zone may pull GCE images. The LZ automation project will be included.  Do not use at same time as unit\_policy\_list compute.trustedImageProjects.  Only use one or the other. | `list(string)` | `[]` | no |
 | unit\_iam\_members | IAM members for roles applied on the unit folder. | `map(list(string))` | `{}` | no |

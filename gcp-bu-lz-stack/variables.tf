@@ -216,7 +216,7 @@ variable "images_project_service_account_roles" {
 variable "scanning_service_account" {
   description = "Service account which will be granted permissions for scanning GCR in *-lz-images project of the LZ."
   type        = string
-  default     = "act-twistlock@pid-gousgggp-sec-scan01.iam.gserviceaccount.com"
+  default     = "act-twistlock@pid-gcp-sec-scan01.iam.gserviceaccount.com"
 }
 
 variable "enable_gcr" {

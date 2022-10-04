@@ -45,7 +45,7 @@ Also Managed Instance Group (MIG) is not supported for the same reasons.
 | Name | Source | Version |
 |------|--------|---------|
 | lm\_collector\_vms | github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/compute-vm |  |
-| lm\_instance\_service\_account | git::https://github.com/codepil/terraform-code-bits/gcp-service-account?ref=v1.0.1 |  |
+| lm\_instance\_service\_account | github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/iam-service-account |  |
 
 ## Resources
 
@@ -69,7 +69,7 @@ Also Managed Instance Group (MIG) is not supported for the same reasons.
 | vpc\_name | (Required) Name of GCP VPC network to deploy resources into | `string` | n/a | yes |
 | zones | (Required) List of zones in which to create VMs and instance groups | `list(string)` | n/a | yes |
 | additional\_source\_network\_ip\_ranges | (Optional) Custom list of IP ranges, other than specified in 'sub\_network', to allow traffic to LM collectors | `list(string)` | `[]` | no |
-| boot\_disk | (Required) Boot disk properties | <pre>object({<br>    image = string<br>    size  = number<br>    type  = string<br>  })</pre> | <pre>{<br>  "image": "projects/pid-gousgggp-ssvc-os-images/global/images/windows-2016-v2021080622-golden",<br>  "size": 40,<br>  "type": "pd-ssd"<br>}</pre> | no |
+| boot\_disk | (Required) Boot disk properties | <pre>object({<br>    image = string<br>    size  = number<br>    type  = string<br>  })</pre> | <pre>{<br>  "image": "projects/pid-gcp-ssvc-os-images/global/images/windows-2016-v2021080622-golden",<br>  "size": 40,<br>  "type": "pd-ssd"<br>}</pre> | no |
 | collector\_instance\_type | (Required) Instance type to be created. Refer to https://www.logicmonitor.com/support/collectors/collector-overview/collector-capacity | `string` | `"f1-micro"` | no |
 | collector\_login\_users | List of users, groups, or service accounts that are allowed access to the collector VM using the IAP tunnel. The GCP account deploying this code is automatically appended to this list.  Entries should have appropriate 'user:', 'group:', or 'serviceAccount:' prefixes. Use https://cloud.google.com/iap/docs/using-tcp-forwarding#gcloud_3 to connect to VM. | `list(string)` | `[]` | no |
 | collectors\_per\_zone | Number of VM instances to create in each zone | `number` | `1` | no |

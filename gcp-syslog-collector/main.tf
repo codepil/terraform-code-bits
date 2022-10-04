@@ -20,7 +20,7 @@ data "local_file" "startup" {
 
 # create MIG stack i.e., Instance template, MIG and Load Balancer.
 module "mig-syslog-collector" {
-  source = "git::https://github.com/codepil/terraform-code-bits/gcp-compute-mig-stack.git?ref=v1.1.0"
+  source = "../gcp-compute-mig-stack"
 
   project_id  = var.project_id
   region      = var.region

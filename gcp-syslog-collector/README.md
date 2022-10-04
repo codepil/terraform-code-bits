@@ -28,7 +28,7 @@ Below infrastructure is created by the module,
 
 | Name | Source | Version |
 |------|--------|---------|
-| mig-syslog-collector | git::https://github.com/codepil/terraform-code-bits/gcp-compute-mig-stack.git?ref=v1.1.0 |  |
+| mig-syslog-collector | ../gcp-compute-mig-stack |  |
 
 ## Resources
 

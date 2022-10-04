@@ -1,10 +1,11 @@
 # Create instance template, with a given service account
 module "instance_template_service_account" {
-  source       = "git::https://github.com/codepil/terraform-code-bits/gcp-service-account?ref=v1.0.1"
+  source       = "github.com/terraform-google-modules/cloud-foundation-fabric.git//modules/iam-service-account?ref=v18.0.0"
   count        = local.create_instance_template ? 1 : 0
   project_id   = var.project_id
   name         = var.instance_service_account_id
   display_name = "Terraform-managed-compute-instance-template"
+  #TODO: replace with CFF iam_project_roles
   project_roles = [
     "roles/logging.logWriter",
     "roles/monitoring.metricWriter",

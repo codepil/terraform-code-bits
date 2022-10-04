@@ -71,7 +71,7 @@ variable "boot_disk" {
     type  = string
   })
   default = {
-    image = "projects/pid-gousgggp-ssvc-os-images/global/images/windows-2016-v2021080622-golden"
+    image = "projects/pid-gcp-ssvc-os-images/global/images/windows-2016-v2021080622-golden"
     type  = "pd-ssd"
     size  = 40
   }

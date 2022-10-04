@@ -1,4 +1,4 @@
-project_id          = "pid-gousgnad-tlz-gke01-d0cc"
+project_id          = "pid-gcp-tlz-gke01-d0cc"
 region              = "us-east1"
 vpc_name            = "image-vpc"
 subnet_name         = "subnet-for-packer-vms"
@@ -11,7 +11,7 @@ instance_type       = "e2-medium"
 # to use RHEL 7 base image, use "projects/rhel-cloud/global/images/rhel-7-v20210721"
 # Using RHEL8 LZ gold image
 boot_disk = {
-  image = "projects/pid-gousgnad-tlz-gke01-d0cc/global/images/rhel-8-v2021072216-golden"
+  image = "projects/pid-gcp-tlz-gke01-d0cc/global/images/rhel-8-v2021072216-golden"
   type  = "pd-ssd"
   size  = 30
 }
