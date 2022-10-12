@@ -28,7 +28,7 @@ locals {
 
 # Create a Key Ring in a central (attestor) project.
 module "key-ring"{
-  source = "../gcp-kms-keyring"
+  source = "../../gcp-kms-keyring"
   count = local.is_keyring_exits ? 0 : 1  # TODO: with this logic, TF (re)apply says key ring will be destroyed but actually not, misleading..
   project_id = data.google_project.key_project.name
   key_ring_name = var.key_ring_name
@@ -36,7 +36,7 @@ module "key-ring"{
 }
 
 module "attestor-key"{
-  source = "../gcp-kms-key"
+  source = "../../gcp-kms-key"
   project_id = data.google_project.key_project.name
   key_ring   = local.is_keyring_exits? data.google_kms_key_ring.attestor_key_ring.self_link: module.key-ring[0].self_link
 
