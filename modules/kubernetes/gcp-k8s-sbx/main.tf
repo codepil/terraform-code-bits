@@ -79,7 +79,7 @@ module "gke_default_pool" {
 }
 
 module "proxyvm" {
-  source = "../gcp-proxyvm"
+  source = "../../networking/gcp-proxyvm"
   project_id         = var.project_id
   name               = var.vm_name
   region             = var.vm_region
